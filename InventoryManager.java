@@ -56,6 +56,15 @@ public class InventoryManager {
         System.out.println("Thank you for reporting " + item + " as out of stock!");
     }
 
+    public void restockItem() {
+        this.viewItems();
+        int index = InputProcessor.getUserInput("Select the item you wish to restock", 1, soldOutItems.size()) - 1;
+        String item = soldOutItems.get(index);
+        soldOutItems.remove(index);
+        availableItems.add(item);
+        System.out.println("Thank you for restocking " + item + "!");
+    }
+
     public ArrayList<String> getAvailableItems() {
         return availableItems;
     }
